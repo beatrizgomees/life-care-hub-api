@@ -1,6 +1,6 @@
 
 CREATE TABLE tb_user(
-  id SERIAL PRIMARY KEY,
+  id uuid PRIMARY KEY,
   name TEXT NOT NULL,
   username TEXT NOT NULL,
   email TEXT NOT NULL,

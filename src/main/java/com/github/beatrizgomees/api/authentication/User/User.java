@@ -1,6 +1,5 @@
 package com.github.beatrizgomees.api.authentication.User;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import lombok.Getter;
 
 import java.util.UUID;
@@ -17,6 +16,7 @@ public class User {
     private String name;
 
     private String username;
+
 
     private String email;
 

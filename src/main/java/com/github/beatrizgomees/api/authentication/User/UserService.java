@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 @Service
-// é utilizada em classes de serviço para indicar que a classe
-// contém a lógica de negócio da aplicação
+// is used in service classes to indicate that the class
+// contains the application's business logic
 public class UserService {
 
     @Autowired
@@ -17,13 +17,13 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-    //é usada para injetar uma instância de uma
-    // classe gerenciada pelo Spring em outra classe.
-    // Essa anotação pode ser usada para injetar objetos em
-    // construtores, campos e métodos. Quando o Spring encontra
-    // um campo ou método com a anotação @Autowired,
-    // ele procura por um objeto do tipo correspondente
-    // no contexto do aplicativo e o injeta automaticamente.
+    // is used to inject an instance of a
+    // class managed by Spring into another class.
+    // This annotation can be used to inject objects into
+    // constructors, fields and methods. When Spring meets
+    // a field or method with the @Autowired annotation,
+    // it searches for an object of the corresponding type
+    // in the application context and automatically injects it.
 
 
 

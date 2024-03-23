@@ -1,6 +1,8 @@
 package com.github.beatrizgomees.api.authentication.User;
+import com.github.beatrizgomees.api.authentication.dto.LoginRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.UUID;
 
@@ -49,5 +51,9 @@ public class User {
         this.email = email;
         this.username = username;
         this.password = passwordHash;
+    }
+
+    public boolean isLoginCorrect(LoginRequest loginRequest, PasswordEncoder passwordEncoder){
+       return passwordEncoder.matches(loginRequest.password(),this.password);
     }
 }

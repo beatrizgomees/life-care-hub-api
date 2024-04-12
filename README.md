@@ -46,7 +46,7 @@ Authorization: Bearer seu-token-jwt
 ### Faça o clone da aplicação aqui neste repositorio
 
 ```
-git clone
+git clone https://github.com/beatrizgomees/api-authentication
 
 ```
 

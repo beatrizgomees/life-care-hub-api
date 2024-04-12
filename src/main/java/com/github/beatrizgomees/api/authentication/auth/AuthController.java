@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.time.Instant;
 
-@RestController
+@RestController("/api/auth")
 public class AuthController {
 
     private final JwtEncoder jwtEncoder;

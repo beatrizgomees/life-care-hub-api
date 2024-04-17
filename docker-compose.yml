@@ -11,7 +11,7 @@ services:
       - DB_PORT=${DB_PORT}
       - DB_HOST=${DB_HOST}
     ports:
-      - "5433:5432"
+      - ${DB_PORT}:${DB_PORT}
     networks:
       - spring-boot-network
     volumes:

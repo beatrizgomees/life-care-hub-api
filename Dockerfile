@@ -1,5 +1,6 @@
 # Estágio de compilação:
-FROM eclipse-temurin:17-jdk-alpine as builder
+FROM eclipse-temurin:21-jdk-alpine as builder
+
 
 # Definir o diretório de trabalho
 WORKDIR /app
@@ -10,18 +11,18 @@ COPY build.gradle settings.gradle ./
 # Copiar o wrapper Gradle
 COPY gradlew ./
 COPY gradle/ gradle/
-
+RUN dos2unix gradlew
 # Baixar dependências Gradle
-RUN ./gradlew build --no-daemon || return 0
+RUN ./gradlew build
 
 # Copiar o código fonte
 COPY src src
 
 # Compilar a aplicação Spring Boot com Gradle
-RUN ./gradlew build --no-daemon
+RUN ./gradlew build
 
 # Estágio de execução:
-FROM eclipse-temurin:17-jre-alpine
+FROM eclipse-temurin:21-jdk-alpine
 
 # Definir o diretório de trabalho
 WORKDIR /app

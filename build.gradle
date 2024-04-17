@@ -10,13 +10,17 @@ group = 'com.beatrizgomees.user.api'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '17'
+    sourceCompatibility = '21'
 }
 
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
     }
+}
+
+springBoot {
+    mainClass = 'com.github.beatrizgomees.api.authentication.ApiAuthenticationApplication'
 }
 
 repositories {
@@ -45,10 +49,6 @@ dependencies {
     testImplementation 'org.springframework.security:spring-security-test'
 }
 
-tasks.named('test') {
-    outputs.dir snippetsDir
-    useJUnitPlatform()
-}
 
 tasks.named('asciidoctor') {
     inputs.dir snippetsDir

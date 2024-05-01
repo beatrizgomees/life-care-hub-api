@@ -3,6 +3,8 @@ package com.github.beatrizgomees.api.authentication.auth;
 import com.github.beatrizgomees.api.authentication.User.UserRepository;
 import com.github.beatrizgomees.api.authentication.dto.LoginRequest;
 import com.github.beatrizgomees.api.authentication.dto.LoginResponse;
+import com.github.beatrizgomees.api.authentication.producer.UserServiceProducer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,6 +23,9 @@ public class AuthController {
     private final JwtEncoder jwtEncoder;
     private final UserRepository userRepository;
     private BCryptPasswordEncoder passwordEncoder;
+
+    @Autowired
+    private UserServiceProducer userServiceProducer;
 
     public AuthController(JwtEncoder jwtEncoder,
                            UserRepository userRepository,
@@ -48,6 +53,7 @@ public class AuthController {
                 .build();
 
         var jwtValue = jwtEncoder.encode(JwtEncoderParameters.from(claims)).getTokenValue();
+        userServiceProducer.integrationAutheticationUser(loginRequest);
         return ResponseEntity.ok(new LoginResponse(jwtValue, expiresIn));
     }
 }

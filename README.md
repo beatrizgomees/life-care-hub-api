@@ -1,59 +1,112 @@
-# API de Autenticação JWT
+markdown
 
-Bem-vindo à documentação da API de Autenticação JWT! Esta API permite que você gerencie autenticação e autorização em sua aplicação usando JSON Web Tokens (JWT).
+# JWT Authentication API
 
----
+🐳 Welcome to the JWT Authentication API documentation! This API allows you to manage authentication and authorization in your application using JSON Web Tokens (JWT).
 
-## Autenticação
+## Authentication
 
-Para acessar os recursos protegidos pela API, você precisa autenticar-se primeiro. Aqui está como você pode fazer isso:
+To access the resources protected by the API, you need to authenticate first. Follow the steps below to authenticate:
 
-### Solicitação de Login
+### Login Request
 
-Envie uma solicitação POST para `/api/auth/login` com suas credenciais de usuário.
-
-Exemplo de corpo da solicitação:
-```json
-{
-  "username": "usuario",
-  "password": "senha"
-}
-
-```
-Se as credenciais estiverem corretas, você receberá um token de acesso JWT no corpo da resposta.
-
-Exemplo de resposta bem-sucedida:
+Send a POST request to `/api/auth/login` with your user credentials in the request body. For example:
 
 ```json
-
 {
-  "token": "seu-token-jwt"
+  "username": "your-username",
+  "password": "your-password"
 }
 ```
-Autorização
+If the credentials are correct, you will receive a JWT access token in the response body.
 
-Depois de obter o token JWT, você pode usá-lo para acessar os recursos protegidos pela API. Adicione o token JWT ao cabeçalho Authorization em suas solicitações HTTP.
+Successful response example:
+```
+json
 
-Exemplo de cabeçalho de autorização:
+{
+  "token": "your-jwt-token"
+}
 ```
 
-Authorization: Bearer seu-token-jwt
+Authorization
+
+After obtaining the JWT token, you can use it to access the protected resources of the API. Add the JWT token to the Authorization header in your HTTP requests.
+
+Authorization header example:
 
 ```
 
-# Para Utilizar a API
+Authorization: Bearer your-jwt-token
+```
 
-### Faça o clone da aplicação aqui neste repositorio
+# How to Use the API
+
+    Clone the application from this repository
 
 ```
+
 git clone https://github.com/beatrizgomees/api-authentication
+```
+
+### You will need to change the JDBC URL by removing where it has localhost to 172.17.0.1
+
+    Open the application.properties or application.yml file where you configured the Spring Boot properties.
+
+    Locate the database-related configurations. In your case, these configurations include:
+```
+
+spring.datasource.url=jdbc:postgresql://172.17.0.1:5432/apiauthentication
 
 ```
 
-### Depois é só rodar em sua máquina e acessar a url 
+### Change the value of the spring.datasource.url property to reflect the desired new database URL. For example, if you want to change the database IP to localhost, you can change it to:
+
+Flyway URL, located just below
 
 ```
+
+spring.datasource.url=jdbc:postgresql://localhost:5432/apiauthentication
+```
+
+Save the changes to the file.
+
+Run the application in a Docker environment:
+
+Make sure you have Docker installed on your machine. Run the following command at the root of the cloned project:
+
+```
+docker compose up --build --remove-orphans
+```
+
+### After running the command, you can access this URL in your browser to view and interact with the API documentation.
+
+```
+
 http://localhost:8080/swagger-ui/index.html
 
 ```
+
+## Stacks 
+- Java 21
+- SpringBoot
+- SpringSecurity
+- SpringDoc
+- OpenApi
+- Docker
+- Gradlew
+- PostgreSQL
+<div style="display: inline_block">
+  <h4>Stacks</h4>
+  
+  <img align="center" alt="Bea-Java" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" />
+  <img align="center" alt="Bea-Dart" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original-wordmark.svg" />
+ <img align="center" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/openapi/openapi-plain-wordmark.svg" />
+  <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
+  <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" />
+  <img align="center" height="30" width="40" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gradle/gradle-original.svg" />
+         
+</div>
+
+
 

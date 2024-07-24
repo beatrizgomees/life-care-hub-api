@@ -1,5 +1,5 @@
-package com.github.beatrizgomees.api.authentication.User;
-import com.github.beatrizgomees.api.authentication.dto.LoginRequest;
+package com.github.beatrizgomees.api.authentication.domain.User;
+import com.github.beatrizgomees.api.authentication.auth.dto.LoginRequest;
 import jakarta.persistence.*;
 import lombok.Getter;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,7 +18,6 @@ public class User {
     private String name;
 
     private String username;
-
 
     private String email;
 

@@ -1,4 +1,4 @@
-package com.github.beatrizgomees.api.authentication.email;
+package com.github.beatrizgomees.api.authentication.service.email;
 
 public class EmailFormatException extends Exception{
 

@@ -1,4 +1,4 @@
-package com.github.beatrizgomees.api.authentication.User;
+package com.github.beatrizgomees.api.authentication.domain.User;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

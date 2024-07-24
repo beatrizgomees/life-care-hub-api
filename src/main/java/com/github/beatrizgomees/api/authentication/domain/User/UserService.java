@@ -1,11 +1,13 @@
-package com.github.beatrizgomees.api.authentication.User;
+package com.github.beatrizgomees.api.authentication.domain.User;
 
-import com.github.beatrizgomees.api.authentication.email.EmailFormatException;
-import com.github.beatrizgomees.api.authentication.email.EmailValidator;
+import com.github.beatrizgomees.api.authentication.service.email.EmailFormatException;
+import com.github.beatrizgomees.api.authentication.service.email.EmailValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
+
+import java.util.UUID;
 
 @Service
 // is used in service classes to indicate that the class
@@ -41,6 +43,12 @@ public class UserService {
 
         User user = userMapper.toEntity(userRequest);
         userRepository.save(user);
+    }
+
+    public User findById(UUID id) {
+        return userRepository
+                .findById(id)
+                .orElseThrow(() -> new RuntimeException("User with id '" + id + "' not found"));
     }
 
 

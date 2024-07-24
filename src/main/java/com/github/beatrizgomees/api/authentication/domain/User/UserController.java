@@ -1,6 +1,6 @@
-package com.github.beatrizgomees.api.authentication.User;
+package com.github.beatrizgomees.api.authentication.domain.User;
 
-import com.github.beatrizgomees.api.authentication.email.EmailFormatException;
+import com.github.beatrizgomees.api.authentication.service.email.EmailFormatException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;

@@ -1,7 +1,7 @@
 package com.github.beatrizgomees.api.authentication.config;
 
-import com.github.beatrizgomees.api.authentication.User.User;
-import com.github.beatrizgomees.api.authentication.User.UserRepository;
+import com.github.beatrizgomees.api.authentication.domain.User.User;
+import com.github.beatrizgomees.api.authentication.domain.User.UserRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
@@ -9,6 +9,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 public class AdminUserConfig implements CommandLineRunner {
+
+
     private final UserRepository userRepository;
 
     private final BCryptPasswordEncoder passwordEncoder;

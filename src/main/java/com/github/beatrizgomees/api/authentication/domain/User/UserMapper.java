@@ -1,4 +1,4 @@
-package com.github.beatrizgomees.api.authentication.User;
+package com.github.beatrizgomees.api.authentication.domain.User;
 
 import org.springframework.stereotype.Component;
 

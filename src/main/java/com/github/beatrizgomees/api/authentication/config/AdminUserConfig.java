@@ -20,25 +20,9 @@ public class AdminUserConfig implements CommandLineRunner {
         this.passwordEncoder = passwordEncoder;
     }
 
+
     @Override
-    @Transactional
     public void run(String... args) throws Exception {
-        var user = userRepository.findByEmail("useremail@gmail.com");
-
-        user.ifPresentOrElse(
-                userExist -> {
-
-                    System.out.println("User existe");
-                },
-                () -> {
-                    var createUser = new User();
-                    createUser.setName("User 01");
-                    createUser.setEmail("useremail@gmail.com");
-                    createUser.setUsername("user01");
-                    createUser.setPassword(passwordEncoder.encode("12345"));
-                    userRepository.save(createUser);
-                }
-        );
 
     }
 }
